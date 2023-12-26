@@ -29,19 +29,14 @@ public class LocationService {
                 .orElseThrow(()-> new EntityNotFoundException("Location not found with id: "+locationId));
     }
     public Location createLocationForCity(long cityId, Location location) {
-        // Retrieve the city by ID
         City city = cityRepository.findById(cityId)
                 .orElseThrow(() -> new EntityNotFoundException("City not found with id: " + cityId));
 
-        // Check if the location already exists with the given ID
         if (locationRepository.existsById(location.getLocationId())) {
             throw new IllegalArgumentException("The Location with this id already exists: " + location.getLocationId());
         }
-
-        // Set the city for the location
         location.setCity(city);
 
-        // Save the location
         return locationRepository.save(location);
     }
 

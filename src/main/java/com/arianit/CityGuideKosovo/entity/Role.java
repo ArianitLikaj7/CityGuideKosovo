@@ -21,6 +21,8 @@ public enum Role {
             Set.of(
                     Permission.ADMIN_READ,
                     Permission.ADMIN_CREATE,
+                    Permission.ADMIN_UPDATE,
+                    Permission.ADMIN_DELETE,
                     Permission.MANAGER_READ,
                     Permission.MANAGER_CREATE
 
